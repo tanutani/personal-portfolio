@@ -1,0 +1,15 @@
+[
+  {
+    "id": "crochet",
+    "title": "Crochet by Arsh",
+    "description": "Full-stack e-commerce platform for handmade crochet products. Features product catalog, shopping cart, and checkout flows.",
+    "technologies": ["React", "Node.js", "MongoDB", "Stripe"],
+    "link": "https://crochetbyarsh.com"
+  },
+  {
+    "id": "automation",
+    "title": "Content Publishing Automation",
+    "description": "Automation script for scheduled publishing and analytics aggregation across multiple platforms.",
+    "technologies": ["Python", "APIs", "Automation"]
+  }
+]

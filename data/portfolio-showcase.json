@@ -1,0 +1,38 @@
+[
+  {
+    "id": "ai-1",
+    "title": "LM Fine-tuning",
+    "category": "AI",
+    "description": "Language model fine-tuning experiments"
+  },
+  {
+    "id": "automation-1",
+    "title": "Social Scheduler Bot",
+    "category": "Automation",
+    "description": "Posting automation across platforms"
+  },
+  {
+    "id": "website-1",
+    "title": "Site Design & Build",
+    "category": "Website",
+    "description": "Portfolio UI and web development"
+  },
+  {
+    "id": "design-1",
+    "title": "Branding & UI",
+    "category": "Design",
+    "description": "UI concept and design system"
+  },
+  {
+    "id": "video-1",
+    "title": "Project Walkthrough",
+    "category": "Video",
+    "description": "Explainer video production"
+  },
+  {
+    "id": "posts-1",
+    "title": "AI & Policy Notes",
+    "category": "Posts",
+    "description": "LinkedIn thread and content"
+  }
+]

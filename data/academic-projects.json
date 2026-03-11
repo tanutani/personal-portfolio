@@ -1,0 +1,20 @@
+[
+  {
+    "id": "case-comp-1",
+    "title": "Market Entry Strategy",
+    "description": "Led team to build go-to-market plan for renewable vertical; included financial modelling and scenario planning.",
+    "technologies": ["Strategy", "Finance", "Market Analysis"]
+  },
+  {
+    "id": "research-1",
+    "title": "AI Governance Study",
+    "description": "Comparative analysis of regulatory frameworks and policy recommendations for responsible AI adoption.",
+    "technologies": ["Research", "Policy", "Analysis"]
+  },
+  {
+    "id": "analytics-1",
+    "title": "Predictive Analytics Model",
+    "description": "Built ensemble model to forecast outcomes; emphasized feature engineering and model explainability.",
+    "technologies": ["Python", "ML", "Data Science"]
+  }
+]

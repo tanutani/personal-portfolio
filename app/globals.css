@@ -1,0 +1,80 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;600;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-primary-dark: #1b3c53;
+  --color-primary-main: #234c6a;
+  --color-primary-light: #456882;
+  --color-accent: #d2c1b6;
+  --color-white: #ffffff;
+  --color-bg-dark: #0f1419;
+  --color-text-light: #e8e8e8;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, var(--color-bg-dark) 0%, #0a1418 100%);
+  color: var(--color-text-light);
+  line-height: 1.6;
+}
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Avatar ring animation */
+@keyframes rotateRing {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.avatar-ring {
+  animation: rotateRing 8s linear infinite;
+}
+
+.avatar-ring-hover:hover {
+  animation-duration: 4s !important;
+}
+
+/* Smooth transitions */
+a,
+button {
+  transition: all 0.3s ease;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-primary-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-accent);
+}
+
+/* Selection styling */
+::selection {
+  background: var(--color-primary-main);
+  color: var(--color-white);
+}

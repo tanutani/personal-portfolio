@@ -1,0 +1,19 @@
+{
+  "name": "Tanish Chaudhary",
+  "tagline": "Strategist | Technologist | Builder",
+  "email": "hello@tanishchaudhary.com",
+  "links": [
+    {
+      "label": "LinkedIn",
+      "url": "https://linkedin.com/in/tanish-chaudhary"
+    },
+    {
+      "label": "GitHub",
+      "url": "https://github.com"
+    },
+    {
+      "label": "Email",
+      "url": "mailto:hello@tanishchaudhary.com"
+    }
+  ]
+}
