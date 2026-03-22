@@ -1,34 +1,34 @@
-import type { Metadata } from 'next';
-import './globals.css';
+import type { Metadata } from 'next'
+import './globals.css'
+import CursorSpotlight from '@/components/CursorSpotlight'
 
-export const metadata: Metadata = {
-  title: 'Tanish Chaudhary | Personal Portfolio',
-  description:
-    'Portfolio website showcasing projects, experience, and expertise in AI, policy, and technology',
-  authors: [{ name: 'Tanish Chaudhary' }],
-  creator: 'Tanish Chaudhary',
-  themeColor: '#234C6A',
-  openGraph: {
-    title: 'Tanish Chaudhary | Portfolio',
-    description: 'Personal portfolio showcasing projects and expertise',
-    type: 'website',
-  },
-};
+const metadata: Metadata = {
+  title: 'Tanish Chaudhary - Personal Portfolio',
+  description: 'Learning fast and building faster',
+  viewport: 'width=device-width, initial-scale=1',
+}
+
+export { metadata }
 
 export default function RootLayout({
   children,
 }: {
-  children: React.ReactNode;
+  children: React.ReactNode
 }) {
   return (
     <html lang="en">
       <head>
+        <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
+        <title>{metadata.title as string}</title>
+        <meta name="description" content={metadata.description as string} />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
-      <body className="bg-neutral-dark text-neutral-light antialiased">
+      <body className="bg-primary-dark text-white min-h-screen noise-overlay">
+        <CursorSpotlight />
         {children}
       </body>
     </html>
-  );
+  )
 }

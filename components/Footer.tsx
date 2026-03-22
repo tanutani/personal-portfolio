@@ -1,74 +1,76 @@
+import siteConfig from '@/data/site-config.json'
+
 export default function Footer() {
-  const currentYear = new Date().getFullYear();
+  const year = new Date().getFullYear()
 
   return (
-    <footer className="border-t border-primary-light/20 bg-primary-dark/30 backdrop-blur-sm mt-20">
-      <div className="max-w-6xl mx-auto px-4 md:px-8 py-12 md:py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
-          {/* Brand */}
-          <div className="space-y-2">
-            <h3 className="font-serif text-2xl font-bold text-primary-accent">
-              Tanish Chaudhary
+    <footer className="w-full bg-primary-dark relative">
+      {/* Sharp divider line */}
+      <div className="section-divider" />
+
+      <div className="max-w-7xl mx-auto px-6 md:px-12 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12">
+          {/* Brand - spans 5 cols */}
+          <div className="md:col-span-5">
+            <h3 className="text-2xl font-semibold text-white tracking-tight mb-2">
+              {siteConfig.name}
             </h3>
-            <p className="text-neutral-light/70 text-sm">
-              Building at the intersection of strategy, technology, and design.
-            </p>
           </div>
 
-          {/* Quick Links */}
-          <div className="space-y-3">
-            <h4 className="font-semibold text-neutral-light">Navigation</h4>
-            <nav className="flex flex-col gap-2">
-              <button className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm text-left">
-                Resume
-              </button>
-              <button className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm text-left">
-                Projects
-              </button>
-              <button className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm text-left">
-                Portfolio
-              </button>
-            </nav>
+          {/* Links - spans 3 cols */}
+          <div className="md:col-span-3">
+            <h4 className="text-xs font-mono font-medium text-accent/50 uppercase tracking-wider mb-4">Links</h4>
+            <ul className="space-y-2">
+              {siteConfig.social.map((link) => (
+                <li key={link.name}>
+                  <a
+                    href={link.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer-link text-gray-400 hover:text-accent transition-colors"
+                  >
+                    {link.name}
+                  </a>
+                </li>
+              ))}
+            </ul>
           </div>
 
-          {/* Contact */}
-          <div className="space-y-3">
-            <h4 className="font-semibold text-neutral-light">Connect</h4>
-            <div className="flex flex-col gap-2">
+          {/* Contact - spans 4 cols */}
+          <div className="md:col-span-4">
+            <h4 className="text-xs font-mono font-medium text-accent/50 uppercase tracking-wider mb-4">Contact</h4>
+            <div className="space-y-2">
               <a
-                href="https://linkedin.com/in/tanish-chaudhary"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm"
+                href={`mailto:${siteConfig.email}`}
+                className="footer-link text-gray-400 hover:text-accent transition-colors block"
               >
-                LinkedIn →
+                {siteConfig.email}
               </a>
               <a
-                href="https://github.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm"
+                href={`tel:${siteConfig.phone}`}
+                className="footer-link text-gray-400 hover:text-accent transition-colors block"
               >
-                GitHub →
+                {siteConfig.phone}
               </a>
-              <a
-                href="mailto:hello@example.com"
-                className="text-neutral-light/70 hover:text-primary-accent transition-colors text-sm"
-              >
-                Email →
-              </a>
+              <p className="text-xs text-gray-600 font-mono mt-3">
+                Based in India
+              </p>
             </div>
           </div>
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-primary-light/20 pt-8">
-          <div className="flex flex-col md:flex-row justify-between items-center gap-4 text-sm text-neutral-light/60">
-            <p>&copy; {currentYear} Tanish Chaudhary. All rights reserved.</p>
-            <p>Designed & Built with care</p>
-          </div>
+        {/* Bottom bar */}
+        <div className="section-divider mt-12 mb-6" />
+
+        <div className="flex items-center justify-between">
+          <p className="text-xs font-mono text-gray-600">
+            &copy; {year} {siteConfig.name}
+          </p>
+          <p className="text-xs font-mono text-gray-700">
+            v1.0
+          </p>
         </div>
       </div>
     </footer>
-  );
+  )
 }

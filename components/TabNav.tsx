@@ -1,84 +1,95 @@
-'use client';
+'use client'
 
-import { useEffect, useState, useRef } from 'react';
-
-interface Tab {
-  id: string;
-  label: string;
-}
+import { useState, useEffect, useRef, useCallback } from 'react'
 
 interface TabNavProps {
-  activeTab: string;
-  setActiveTab: (tabId: string) => void;
-  tabs: Tab[];
+  activeTab: 'resume' | 'academic' | 'live' | 'showcase'
+  setActiveTab: (tab: 'resume' | 'academic' | 'live' | 'showcase') => void
 }
 
-export default function TabNav({ activeTab, setActiveTab, tabs }: TabNavProps) {
-  const [isSticky, setIsSticky] = useState(false);
-  const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
-  const containerRef = useRef<HTMLDivElement>(null);
+export default function TabNav({ activeTab, setActiveTab }: TabNavProps) {
+  const [isSticky, setIsSticky] = useState(false)
+  const [underlineStyle, setUnderlineStyle] = useState({ left: 0, width: 0 })
+  const tabsRef = useRef<Record<string, HTMLButtonElement | null>>({})
+  const navTrackRef = useRef<HTMLDivElement>(null)
+
+  const updateUnderline = useCallback(() => {
+    const activeButton = tabsRef.current[activeTab]
+    if (!activeButton) return
+
+    setUnderlineStyle({
+      left: activeButton.offsetLeft,
+      width: activeButton.offsetWidth,
+    })
+  }, [activeTab])
 
   useEffect(() => {
     const handleScroll = () => {
-      const heroHeight = typeof window !== 'undefined' ? window.innerHeight * 0.8 : 0;
-      setIsSticky(window.scrollY > heroHeight);
-    };
+      setIsSticky(window.scrollY > 600)
+    }
 
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    window.addEventListener('scroll', handleScroll)
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
-    const updateUnderlinePosition = () => {
-      const container = containerRef.current;
-      if (!container) return;
+    updateUnderline()
 
-      const activeButton = container.querySelector(`button:nth-child(${tabs.findIndex(t => t.id === activeTab) + 1})`);
-      if (activeButton) {
-        const { offsetWidth, offsetLeft } = activeButton as HTMLElement;
-        setUnderlineStyle({ width: offsetWidth, left: offsetLeft });
-      }
-    };
+    const navTrack = navTrackRef.current
 
-    updateUnderlinePosition();
-    window.addEventListener('resize', updateUnderlinePosition);
-    return () => window.removeEventListener('resize', updateUnderlinePosition);
-  }, [activeTab, tabs]);
+    window.addEventListener('resize', updateUnderline)
+    navTrack?.addEventListener('scroll', updateUnderline)
+
+    return () => {
+      window.removeEventListener('resize', updateUnderline)
+      navTrack?.removeEventListener('scroll', updateUnderline)
+    }
+  }, [updateUnderline])
+
+  const tabs = [
+    { id: 'resume', label: 'Resume' },
+    { id: 'academic', label: 'Academic' },
+    { id: 'live', label: 'Live Projects' },
+    { id: 'showcase', label: 'Showcase' },
+  ] as const
 
   return (
     <nav
-      className={`${
+      className={`w-full transition-all duration-500 ${
         isSticky
-          ? 'fixed top-0 left-0 right-0 z-40 shadow-2xl shadow-primary-dark/50'
-          : 'relative'
-      } bg-neutral-dark/95 backdrop-blur-sm border-b border-primary-light/20 transition-all duration-300`}
+          ? 'fixed top-0 z-50 bg-primary-dark/95 backdrop-blur-md border-b border-primary-light/20 shadow-lg shadow-black/10'
+          : 'bg-primary-main/80 border-b border-primary-light/10'
+      }`}
     >
-      <div className="max-width-1200px mx-auto px-4 md:px-8">
-        <div ref={containerRef} className="relative flex gap-2 md:gap-8 overflow-x-auto">
+      <div className="max-w-7xl mx-auto px-6 md:px-12">
+        <div ref={navTrackRef} className="relative flex gap-1 md:gap-6 overflow-x-auto py-3">
           {tabs.map((tab) => (
             <button
               key={tab.id}
+              ref={(el) => { tabsRef.current[tab.id] = el }}
               onClick={() => setActiveTab(tab.id)}
-              className={`py-4 px-4 md:px-6 font-medium text-sm md:text-base transition-colors whitespace-nowrap ${
+              className={`tab-btn relative py-2 px-4 whitespace-nowrap ${
                 activeTab === tab.id
-                  ? 'text-primary-accent'
-                  : 'text-neutral-light/60 hover:text-neutral-light'
+                  ? 'text-accent'
+                  : 'text-gray-500 hover:text-gray-300'
               }`}
             >
               {tab.label}
             </button>
           ))}
-          
+
           {/* Animated underline */}
           <div
-            className="absolute bottom-0 h-0.5 bg-primary-accent transition-all duration-300"
+            className="absolute bottom-0 h-px bg-accent pointer-events-none"
             style={{
-              width: `${underlineStyle.width}px`,
-              left: `${underlineStyle.left}px`,
+              left: underlineStyle.left,
+              width: underlineStyle.width,
+              transition: 'left 0.35s cubic-bezier(0.22, 1, 0.36, 1), width 0.35s cubic-bezier(0.22, 1, 0.36, 1)',
+              boxShadow: '0 0 8px rgba(210, 193, 182, 0.2)',
             }}
           />
         </div>
       </div>
     </nav>
-  );
+  )
 }

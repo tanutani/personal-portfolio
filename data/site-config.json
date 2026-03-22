@@ -1,19 +1,21 @@
 {
   "name": "Tanish Chaudhary",
-  "tagline": "Strategist | Technologist | Builder",
-  "email": "hello@tanishchaudhary.com",
-  "links": [
+  "tagline": "Learning fast and building faster",
+  "description": "PE/VC focused analyst passionate about AI applications in finance and policy. Building conviction through data-driven insights and strategic thinking.",
+  "email": "tanishhchaudhary@gmail.com",
+  "phone": "+91 9818928655",
+  "social": [
     {
-      "label": "LinkedIn",
-      "url": "https://linkedin.com/in/tanish-chaudhary"
+      "name": "LinkedIn",
+      "url": "https://www.linkedin.com/in/tanish-chaudhary-1750741b3/"
     },
     {
-      "label": "GitHub",
-      "url": "https://github.com"
+      "name": "Twitter",
+      "url": "https://x.com/tanutaniii"
     },
     {
-      "label": "Email",
-      "url": "mailto:hello@tanishchaudhary.com"
+      "name": "GitHub",
+      "url": "https://github.com/tanutanii"
     }
   ]
 }
