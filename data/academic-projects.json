@@ -1,20 +1,10 @@
 [
   {
-    "id": "case-comp-1",
-    "title": "Market Entry Strategy",
-    "description": "Led team to build go-to-market plan for renewable vertical; included financial modelling and scenario planning.",
-    "technologies": ["Strategy", "Finance", "Market Analysis"]
-  },
-  {
-    "id": "research-1",
-    "title": "AI Governance Study",
-    "description": "Comparative analysis of regulatory frameworks and policy recommendations for responsible AI adoption.",
-    "technologies": ["Research", "Policy", "Analysis"]
-  },
-  {
-    "id": "analytics-1",
-    "title": "Predictive Analytics Model",
-    "description": "Built ensemble model to forecast outcomes; emphasized feature engineering and model explainability.",
-    "technologies": ["Python", "ML", "Data Science"]
+    "id": 1,
+    "title": "Media Trust's Impact on Political Satisfaction: India's Case",
+    "description": "R-based analysis of World Values Survey data (N=1,692), statistically validating that press confidence significantly drives India's political satisfaction. The research proved this complex relationship is mediated by perceived citizen agency and moderated by journalist corruption.",
+    "technologies": ["R", "Statistical Analysis", "Research", "Data Science"],
+    "downloadLink": "/research-paper.pdf",
+    "grade": "A+"
   }
 ]

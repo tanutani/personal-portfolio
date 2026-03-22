@@ -1,48 +1,49 @@
-'use client';
+'use client'
 
-import ProjectCard from '@/components/ProjectCard';
-
-const academicProjects = [
-  {
-    id: 'case-1',
-    title: 'Market Entry Strategy',
-    description:
-      'Led team to build go-to-market plan for renewable vertical; included financial modelling and scenario planning.',
-    technologies: ['Strategy', 'Finance', 'Market Analysis'],
-  },
-  {
-    id: 'research-1',
-    title: 'AI Governance Study',
-    description:
-      'Comparative analysis of regulatory frameworks and policy recommendations for responsible AI adoption.',
-    technologies: ['Research', 'Policy', 'Analysis'],
-  },
-  {
-    id: 'analytics-1',
-    title: 'Predictive Analytics Model',
-    description:
-      'Built ensemble model to forecast outcomes; emphasized feature engineering and model explainability.',
-    technologies: ['Python', 'ML', 'Data Science'],
-  },
-];
+import academicProjectsData from '@/data/academic-projects.json'
+import RevealOnScroll from '@/components/RevealOnScroll'
 
 export default function AcademicProjectsTab() {
   return (
-    <section className="max-w-6xl mx-auto px-4 md:px-8 py-16 md:py-24 animate-fade-in">
-      <div className="mb-12">
-        <h2 className="font-serif text-3xl md:text-4xl font-bold mb-4 text-neutral-light">
-          Academic Projects
-        </h2>
-        <p className="text-neutral-light/70 max-w-2xl">
-          Case competitions, research initiatives, and academic endeavors showcasing analytical and strategic thinking.
-        </p>
-      </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {academicProjects.map((project) => (
-          <ProjectCard key={project.id} {...project} />
+    <div>
+      <RevealOnScroll>
+        <div className="section-header">
+          <span className="section-index">01</span>
+          <h2 className="section-title">Research & Academic Work</h2>
+          <div className="section-line" />
+        </div>
+      </RevealOnScroll>
+      <div className="space-y-6">
+        {academicProjectsData.map((project, index) => (
+          <RevealOnScroll key={project.id} delay={index * 100}>
+            <div className="glass-card rounded-lg p-6 hover:shadow-lg transition-all duration-300">
+              <div className="flex items-start justify-between mb-3">
+                <h3 className="text-xl font-serif font-bold text-white flex-1">{project.title}</h3>
+                {project.grade && <span className="ml-4 px-3 py-1 bg-gradient-to-r from-primary-light to-accent rounded text-white text-sm font-bold">{project.grade}</span>}
+              </div>
+              <p className="text-gray-300 mb-4">{project.description}</p>
+              <div className="flex items-center justify-between flex-wrap gap-4">
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.map((tech, idx) => (
+                    <span key={idx} className="text-xs bg-primary-dark px-3 py-1 rounded-full text-gray-300">
+                      {tech}
+                    </span>
+                  ))}
+                </div>
+                {project.downloadLink && (
+                  <a
+                    href={project.downloadLink}
+                    download
+                    className="px-4 py-2 bg-gradient-to-r from-primary-light to-accent text-white rounded hover:opacity-90 transition-opacity text-sm font-semibold"
+                  >
+                    📥 Download Paper
+                  </a>
+                )}
+              </div>
+            </div>
+          </RevealOnScroll>
         ))}
       </div>
-    </section>
-  );
+    </div>
+  )
 }

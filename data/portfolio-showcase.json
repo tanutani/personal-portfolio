@@ -1,38 +1,38 @@
 [
   {
-    "id": "ai-1",
-    "title": "LM Fine-tuning",
+    "id": 1,
+    "title": "AI in Healthcare",
     "category": "AI",
-    "description": "Language model fine-tuning experiments"
+    "description": "In-depth analysis of AI applications revolutionizing healthcare industry"
   },
   {
-    "id": "automation-1",
-    "title": "Social Scheduler Bot",
+    "id": 2,
+    "title": "Process Automation ROI",
     "category": "Automation",
-    "description": "Posting automation across platforms"
+    "description": "Case study examining automation benefits and implementation strategies"
   },
   {
-    "id": "website-1",
-    "title": "Site Design & Build",
+    "id": 3,
+    "title": "Portfolio Website",
     "category": "Website",
-    "description": "Portfolio UI and web development"
+    "description": "Personal portfolio site built with Next.js showcasing skills and projects"
   },
   {
-    "id": "design-1",
-    "title": "Branding & UI",
+    "id": 4,
+    "title": "Brand Identity Design",
     "category": "Design",
-    "description": "UI concept and design system"
+    "description": "Logo and visual identity design for emerging startups"
   },
   {
-    "id": "video-1",
-    "title": "Project Walkthrough",
+    "id": 5,
+    "title": "Company Explainer Video",
     "category": "Video",
-    "description": "Explainer video production"
+    "description": "Animated explainer video for SaaS product launch campaign"
   },
   {
-    "id": "posts-1",
-    "title": "AI & Policy Notes",
+    "id": 6,
+    "title": "Industry Insights Blog",
     "category": "Posts",
-    "description": "LinkedIn thread and content"
+    "description": "Series of long-form articles on AI, finance, and policy trends"
   }
 ]
